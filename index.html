@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Cash</title>
+
+<script>
+/* ===== EDIT LINKS HERE ONLY ===== */
+const LINK_21PLUS   = "https://www.ch6rrl8trk.com/2GXK7W/HF435N/?sub1=abv21";
+const LINK_UNDER21  = "https://www.ch6rrl8trk.com/2GXK7W/HF435N/?sub1=under21";
+/* =============================== */
+</script>
+
+<style>
+/* =========================
+   BENJAMIN (BLUE) THEME
+   ========================= */
+:root{
+  --bg:#071423;
+  --card:#0b1c30;
+  --card2:#0a1a2c;
+  --blue:#2f7dff;
+  --blue2:#00c2ff;
+  --grad1:#2f7dff;
+  --grad2:#00c2ff;
+  --white:#f7f9ff;
+  --g1:#93a4bd;
+  --g2:#d6deee;
+  --star:#fcbf26;
+  --outline:rgba(47,125,255,.35);
+  --important:#071d33;
+}
+
+*{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:var(--bg);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  color:var(--white);
+}
+
+.app{
+  max-width:430px;
+  height:100vh;
+  margin:0 auto;
+  padding:14px;
+  position:relative;
+}
+
+/* Top bar */
+.top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+}
+.brand img{
+  width:38px;
+  height:38px;
+  border-radius:14px;
+  object-fit:cover;
+  box-shadow:0 10px 24px rgba(0,0,0,.25);
+}
+.brand span{
+  font-size:26px;
+  font-weight:800;
+  letter-spacing:.2px;
+  white-space:nowrap;
+}
+.users{
+  font-size:16px;
+  color:rgba(214,222,238,.7);
+  white-space:nowrap;
+}
+.users b{ color:var(--blue2); }
+
+/* Hero */
+.hero{
+  text-align:center;
+  margin-top:14px;
+}
+.hero h1{
+  font-size:40px;
+  line-height:1.05;
+  margin:18px 0 10px;
+  font-weight:900;
+}
+.hero .grad{
+  background:linear-gradient(90deg,var(--grad1),var(--grad2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero p{
+  font-size:18px;
+  color:var(--g1);
+  margin:0 0 14px;
+}
+
+/* Earn pill */
+.earn{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:12px 16px;
+  margin:0 auto 14px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  box-shadow:0 18px 40px rgba(0,0,0,.25);
+}
+.earn span{
+  color:var(--g1);
+  font-size:16px;
+}
+.earn b{
+  font-size:28px;
+  font-weight:900;
+}
+.earn b i{
+  color:var(--blue2);
+  font-style:normal;
+}
+
+/* Content pages */
+.content{
+  position:relative;
+  height:calc(100vh - 300px);
+  overflow:hidden;
+}
+.page{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transform:translateY(18px);
+  pointer-events:none;
+  transition:.4s cubic-bezier(.22,.61,.36,1);
+}
+.page.active{
+  opacity:1;
+  transform:none;
+  pointer-events:auto;
+}
+
+.title{
+  text-align:center;
+  font-size:22px;
+  font-weight:900;
+  margin-bottom:14px;
+}
+
+/* Options */
+.option{
+  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  padding:16px;
+  margin-bottom:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+}
+.option h3{
+  margin:0 0 6px;
+  font-size:22px;
+  font-weight:900;
+}
+.option p{
+  margin:0;
+  font-size:16px;
+  color:var(--g1);
+}
+.option p b{ color:var(--blue2); }
+
+.radio{
+  width:26px;
+  height:26px;
+  min-width:26px;
+  min-height:26px;
+  border-radius:50%;
+  border:2px solid rgba(214,222,238,.22);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.radio::after{
+  content:"";
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:transparent;
+}
+.option.selected{
+  border-color:rgba(47,125,255,.45);
+  box-shadow:0 18px 44px rgba(47,125,255,.14);
+}
+.option.selected .radio{
+  border-color:rgba(0,194,255,.65);
+}
+.option.selected .radio::after{
+  background:linear-gradient(180deg,var(--blue),var(--blue2));
+}
+
+/* Reviews */
+.reviews{
+  text-align:center;
+  margin-top:12px;
+}
+.stars{ color:var(--star); letter-spacing:2px; }
+.reviews span{
+  color:var(--g2);
+  font-weight:900;
+}
+.reviews small{
+  display:block;
+  margin-top:6px;
+  color:var(--g1);
+}
+
+/* Steps */
+#p2{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  padding:0 2px calc(env(safe-area-inset-bottom) + 14px);
+}
+.step{
+  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;
+  padding:14px;
+  margin-bottom:10px;
+  display:flex;
+  gap:14px;
+}
+.step.highlight{
+  outline:2px solid var(--outline);
+}
+.num{
+  width:44px;
+  height:44px;
+  min-width:44px;
+  border-radius:50%;
+  background:linear-gradient(180deg,var(--blue),var(--blue2));
+  color:#071423;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+}
+.step h3{
+  margin:0 0 6px;
+  font-size:22px;
+  font-weight:900;
+}
+.step p{
+  margin:0;
+  color:var(--g1);
+}
+.badge{
+  display:inline-block;
+  margin-top:6px;
+  padding:6px 12px;
+  border-radius:10px;
+  background:var(--important);
+  color:var(--blue2);
+  border:1px solid rgba(0,194,255,.25);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.2px;
+}
+
+/* CTA */
+.cta{
+  margin-top:8px;
+  width:100%;
+  border:none;
+  border-radius:22px;
+  padding:16px;
+  background:linear-gradient(90deg,var(--blue),var(--blue2));
+  color:#ffffff;
+  font-size:24px;
+  font-weight:900;
+  box-shadow:0 22px 60px rgba(0,194,255,.18);
+  cursor:pointer;
+}
+.cta:active{ transform:translateY(1px); }
+
+/* Responsive height tweaks */
+@media (max-height: 760px){
+  #p2{ padding-bottom:calc(env(safe-area-inset-bottom) + 40px); }
+  #p2 .step{ padding:12px; margin-bottom:8px; }
+  #p2 .step h3{ font-size:20px; }
+  #p2 .cta{ padding:14px; font-size:22px; margin-bottom:10px; }
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+  <div class="top">
+    <div class="brand">
+      <img src="./assets/benjamin.png" alt="Benjamin logo">
+      <span>Official Partner</span>
+    </div>
+    <div class="users"><b>1.3m+</b> users</div>
+  </div>
+
+  <div class="hero">
+    <h1>Get paid to<br><span class="grad">Scroll on TikTok</span></h1>
+    <p>Turn your screen time into cash.</p>
+    <div class="earn">
+      <span>Earn up to</span>
+      <b><i>$</i>2,000/week</b>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="page active" id="p1">
+      <div class="title">How old are you?</div>
+
+      <div class="option" onclick="selectAge(true,this)">
+        <div>
+          <h3>I’m 21 or older</h3>
+          <p><b>Instant payouts:</b> PayPal, Crypto, Bank Transfer & more</p>
+        </div>
+        <div class="radio"></div>
+      </div>
+
+      <div class="option" onclick="selectAge(false,this)">
+        <div>
+          <h3>I’m under 21</h3>
+          <p>Limited & lower payouts</p>
+        </div>
+        <div class="radio"></div>
+      </div>
+
+      <div class="reviews">
+        <div class="stars">★★★★★</div>
+        <span>4.8 · 251k reviews</span>
+        <small>PayPal · Crypto · Bank · Gift Cards</small>
+      </div>
+    </div>
+
+    <div class="page" id="p2">
+
+      <div class="step">
+        <div class="num">1</div>
+        <div>
+          <h3>Create your account</h3>
+          <p>Get <b>$5 instantly</b> just for signing up</p>
+        </div>
+      </div>
+
+      <div class="step highlight">
+        <div class="num">2</div>
+        <div>
+          <h3>Unlock the TikTok offer</h3>
+          <p>Complete <b>1 offer</b> to unlock</p>
+          <div class="badge">IMPORTANT</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">3</div>
+        <div>
+          <h3>Get paid</h3>
+          <p>PayPal, crypto, bank, or gift cards</p>
+        </div>
+      </div>
+
+      <button class="cta" onclick="go()">Start Earning</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+let is21 = null;
+let hasClicked = false;
+
+const p1El = document.getElementById("p1");
+const p2El = document.getElementById("p2");
+
+try { history.replaceState({ step: 1 }, "", location.href); } catch(e){}
+
+function selectAge(v, el){
+  document.querySelectorAll(".option").forEach(o => o.classList.remove("selected"));
+  el.classList.add("selected");
+  is21 = v;
+
+  try { history.pushState({ step: 2 }, "", "#step2"); } catch(e){}
+
+  setTimeout(() => {
+    p1El.classList.remove("active");
+    p2El.classList.add("active");
+  }, 180);
+}
+
+function backToStep1(){
+  document.querySelectorAll(".option").forEach(o => o.classList.remove("selected"));
+  is21 = null;
+  hasClicked = false;
+
+  p2El.classList.remove("active");
+  p1El.classList.add("active");
+}
+
+window.addEventListener("popstate", function(){
+  if (p2El.classList.contains("active")) backToStep1();
+});
+
+function go(){
+  if (hasClicked) return;
+  if (is21 === null) return;
+  hasClicked = true;
+  location.href = is21 ? LINK_21PLUS : LINK_UNDER21;
+}
+</script>
+</body>
+</html>
